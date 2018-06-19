@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scene/Player.gd" type="Script" id=1]
+[ext_resource path="res://navinha.png" type="Texture" id=2]
+[ext_resource path="res://scene/bullet_container.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Node" type="Node" index="0"]
+
+[node name="Player" type="KinematicBody2D" parent="." index="0"]
+
+editor/display_folded = true
+position = Vector2( 439.997, 292.291 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="Player" index="0"]
+
+rotation = 1.5708
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="1"]
+
+position = Vector2( -0.395636, 0.184916 )
+scale = Vector2( 0.727407, 0.789757 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="bullet_container" type="Node" parent="." index="1"]
+
+script = ExtResource( 3 )
+pathToPlayer = NodePath("../Player")
+
+

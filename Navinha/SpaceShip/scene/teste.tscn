@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scene/teste.gd" type="Script" id=1]
+[ext_resource path="res://scene/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sound/Mercury.wav" type="AudioStream" id=3]
+
+[node name="Teste" type="Node" index="0"]
+
+script = ExtResource( 1 )
+pathAudioNode = NodePath("sound_main")
+
+[node name="Player" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="sound_main" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[connection signal="finished" from="sound_main" to="." method="_on_AudioStreamPlayer_finished"]
+
+
