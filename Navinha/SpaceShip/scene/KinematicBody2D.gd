@@ -15,7 +15,6 @@ func _ready():
 func _process(delta):
 	if inicio:
 		mpos = get_global_mouse_position();
-		print("teste!!")
 		inicio=false
 		var rotation = mpos.angle_to_point(position)
 		look_at(mpos)

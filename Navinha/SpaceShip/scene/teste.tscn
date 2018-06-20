@@ -1,20 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scene/teste.gd" type="Script" id=1]
 [ext_resource path="res://scene/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sound/Mercury.wav" type="AudioStream" id=3]
-[ext_resource path="res://scene/inimigo1.gd" type="Script" id=4]
-[ext_resource path="res://inimigo1a.png" type="Texture" id=5]
-[ext_resource path="res://inimigo1b.png" type="Texture" id=6]
-
-[sub_resource type="SpriteFrames" id=1]
-
-animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-} ]
+[ext_resource path="res://scene/Enemie.tscn" type="PackedScene" id=4]
 
 [node name="Teste" type="Node" index="0"]
 
@@ -32,122 +21,7 @@ autoplay = true
 mix_target = 0
 bus = "Master"
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="." index="2"]
-
-position = Vector2( 510.293, 321.732 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
-pathPlayerNode = NodePath("../Player")
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D" index="0"]
-
-rotation = 4.71239
-frames = SubResource( 1 )
-animation = "idle"
-frame = 1
-playing = true
-_sections_unfolded = [ "Transform" ]
-
-[node name="KinematicBody2D4" type="KinematicBody2D" parent="." index="3"]
-
-position = Vector2( 616.146, 248.222 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
-pathPlayerNode = NodePath("../Player")
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D4" index="0"]
-
-rotation = 4.71239
-frames = SubResource( 1 )
-animation = "idle"
-playing = true
-_sections_unfolded = [ "Transform" ]
-
-[node name="KinematicBody2D2" type="KinematicBody2D" parent="." index="4"]
-
-position = Vector2( 663.192, 197.501 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
-pathPlayerNode = NodePath("../Player")
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D2" index="0"]
-
-rotation = 4.71239
-frames = SubResource( 1 )
-animation = "idle"
-frame = 1
-playing = true
-_sections_unfolded = [ "Transform" ]
-
-[node name="KinematicBody2D5" type="KinematicBody2D" parent="." index="5"]
-
-position = Vector2( 582.332, 357.751 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
-pathPlayerNode = NodePath("../Player")
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D5" index="0"]
-
-rotation = 4.71239
-frames = SubResource( 1 )
-animation = "idle"
-playing = true
-_sections_unfolded = [ "Transform" ]
-
-[node name="KinematicBody2D3" type="KinematicBody2D" parent="." index="6"]
-
-position = Vector2( 634.523, 290.123 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
-pathPlayerNode = NodePath("../Player")
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D3" index="0"]
-
-rotation = 4.71239
-frames = SubResource( 1 )
-animation = "idle"
-playing = true
-_sections_unfolded = [ "Transform" ]
-
-[node name="KinematicBody2D6" type="KinematicBody2D" parent="." index="7"]
-
-position = Vector2( 727.88, 287.917 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
-pathPlayerNode = NodePath("../Player")
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D6" index="0"]
-
-rotation = 4.71239
-frames = SubResource( 1 )
-animation = "idle"
-frame = 1
-playing = true
-_sections_unfolded = [ "Transform" ]
+[node name="Node" parent="." index="2" instance=ExtResource( 4 )]
 
 [connection signal="finished" from="sound_main" to="." method="_on_AudioStreamPlayer_finished"]
 
